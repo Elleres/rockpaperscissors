@@ -15,31 +15,46 @@ function playRound(player, computer) {
         return "You lost!";
     }
 }
-function capitalize(text) {
-    let firstLetter = text[0];
-    let rest = text.slice(1);
-    return firstLetter.toUpperCase() + rest.toLowerCase();
-}
 
 function game() {
     var playerWins = 0;
     var computerWins = 0;
     let draws = 0;
     for (let i = 0; i < 5; i++) {
-        let playerChoice = prompt("Rock, Paper or Scissors?");
-        playerChoice = capitalize(playerChoice);
+        let playerChoice;
         let computerChoice = getComputerChoice();
         let result = playRound(playerChoice, computerChoice);
-        console.log(result)
+        console.log(result);
         if (result == "You won!") {
-            playerWins++
+            playerWins++;
         } else if (result == "Draw!") {
-            draws++
+            draws++;
         } else {
-            computerWins++
+            computerWins++;
         }
     }
-    console.log(`Game Score: ${playerWins} x ${computerWins}`)
+    console.log(`Game Score: ${playerWins} x ${computerWins}`); /*Game score needs to be visual, not console*/
 }
 
-game()
+const rockOption = document.getElementById("rock");
+const paperOption = document.getElementById("paper");
+const scissorsOption = document.getElementById("scissors");
+const currentGame = document.getElementById('currentGame')
+
+rockOption.addEventListener('click', (e) => {
+    playerChoice = 'Rock';
+    playRound(playerChoice,getComputerChoice());
+})
+
+paperOption.addEventListener('click', (e) => {
+    playerChoice = 'Paper';
+    playRound(playerChoice,getComputerChoice());
+
+})
+
+scissorsOption.addEventListener('click', (e) => {
+    playerChoice = 'Scissors';
+    playRound(playerChoice,getComputerChoice());
+})
+
+

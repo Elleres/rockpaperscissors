@@ -1,0 +1,83 @@
+html {
+    height: 100%;
+    display: flex;
+}
+
+a {
+    font-family: 'Armata';
+    font-size: 22px;
+    text-decoration: none;
+    color: white;
+    background-color: blue;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+h1,
+.score {
+    font-family: 'Armata';
+    font-size: 22px;
+    color: #47BCDD;
+}
+
+#gameScore {
+    color: #B3B8BB;
+}
+
+.body {
+    background-color: #484848;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+}
+
+.firstPage {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+#mainPic {
+    width: 300px;
+    border-radius: 3px;
+}
+
+
+#body2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    font-family: 'Armata';
+    font-size: 22px;
+    color: #47BCDD;
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+
+}
+
+.options img {
+    height: 150px;
+    width: 110px;
+}
+
+.option p {
+    background-color: #000000;
+    text-align: center;
+    margin: 0;
+}
