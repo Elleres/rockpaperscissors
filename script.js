@@ -16,45 +16,46 @@ function playRound(player, computer) {
     }
 }
 
-function game() {
-    var playerWins = 0;
-    var computerWins = 0;
-    let draws = 0;
-    for (let i = 0; i < 5; i++) {
-        let playerChoice;
-        let computerChoice = getComputerChoice();
-        let result = playRound(playerChoice, computerChoice);
-        console.log(result);
-        if (result == "You won!") {
-            playerWins++;
-        } else if (result == "Draw!") {
-            draws++;
-        } else {
-            computerWins++;
-        }
+
+function oneGame() {
+    let computerChoice = getComputerChoice();
+    let result = playRound(playerChoice, computerChoice);
+    currentGame.innerText = `${playerChoice} x ${computerChoice}`;
+    gameResult.innerText = `${result}`;
+    if (result == "You won!") {
+        playerScore++;
+    } else if (result == "You lost!") {
+        computerScore++;
     }
-    console.log(`Game Score: ${playerWins} x ${computerWins}`); /*Game score needs to be visual, not console*/
+    gameScore.innerText = `${playerScore} x ${computerScore}`
 }
 
+let playerScore = 0;
+let computerScore = 0;
+
+const gameResult = document.getElementById("gameResult");
 const rockOption = document.getElementById("rock");
 const paperOption = document.getElementById("paper");
 const scissorsOption = document.getElementById("scissors");
-const currentGame = document.getElementById('currentGame')
+const currentGame = document.getElementById("currentGame")
+const gameScore = document.getElementById('gameScore')
+
 
 rockOption.addEventListener('click', (e) => {
     playerChoice = 'Rock';
-    playRound(playerChoice,getComputerChoice());
+    oneGame();
 })
 
 paperOption.addEventListener('click', (e) => {
     playerChoice = 'Paper';
-    playRound(playerChoice,getComputerChoice());
+    oneGame();
 
 })
 
 scissorsOption.addEventListener('click', (e) => {
     playerChoice = 'Scissors';
-    playRound(playerChoice,getComputerChoice());
+    oneGame();
+
 })
 
 
